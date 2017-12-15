@@ -15,6 +15,11 @@ buildscript {
 
 apply plugin: 'java'
 apply plugin: 'kotlin'
+apply plugin: 'application'
+
+mainClassName = 'clwater.metaphysics.ServerMain'  // main class
+
+
 
 
 sourceCompatibility = 1.8
@@ -52,12 +57,12 @@ kotlin {
     }
 }
 
-
-jar {
-    baseName 'abc'
-    manifest {
-        attributes 'Main-Class': 'blog.BlogAppKt'
-    }
-
-    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-}
+//
+//jar {
+//    baseName 'abc'
+//    manifest {
+//        attributes 'Main-Class': 'clwater.metaphysics.ServerMain'
+//    }
+//
+//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+//}
