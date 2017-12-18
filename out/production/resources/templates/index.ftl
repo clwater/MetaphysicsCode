@@ -17,14 +17,26 @@
 
 <div class="container" >
 
-    <div class="row" style="background: #ffc67b">
+    <div class="row">
         <div class="col-lg-3"></div>
-        <div class="col-lg-6"
-            style="background: #ffff00">
+        <div class="col-lg-6">
 
-            <h1>${year}</h1>
-            <h1>${month}</h1>
-            <h1>${day}</h1>
+            <div>
+                ${year}年${month}月${day}日 ${week}
+            </div>
+            <div>
+                ${dateWithFestival}
+            </div>
+            <div>
+                ${zhYear}年 ${zhMonth}月 ${zhDay}日
+            </div>
+            <div>
+                ${lunarTiangan+lunarDizhi}[${zodiac}]年
+            </div>
+
+            <div>
+            ${ganZhiMonth}月${ganZhiDay}日
+            </div>
 
         </div>
         <div class="col-lg-3"></div>

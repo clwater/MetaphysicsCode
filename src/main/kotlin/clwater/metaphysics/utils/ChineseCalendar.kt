@@ -1,5 +1,6 @@
 package clwater.metaphysics.utils
 
+import clwater.metaphysics.Routing.IndexServer
 import java.util.Calendar
 import java.util.Date
 import java.util.GregorianCalendar
@@ -229,20 +230,26 @@ class ChineseCalendar : GregorianCalendar {
         when (field) {
             CHINESE_YEAR -> return getChinese(CHINESE_HEAVENLY_STEM) + getChinese(CHINESE_EARTHLY_BRANCH) + "年"
             CHINESE_MONTH -> return if (chineseMonth > 0)
-                                chineseMonthNames[chineseMonth] + "月"
+                                chineseMonthNames[chineseMonth]
                             else
-                                "闰" + chineseMonthNames[-chineseMonth] + "月"
+                                "闰" + chineseMonthNames[-chineseMonth]
+            CHINESE_MONTH_NUMBER -> return if (chineseMonth > 0)
+                                chineseMonth.toString()
+                            else
+                            (-chineseMonth).toString()
             CHINESE_DATE -> return chineseDateNames[chineseDate]
             CHINESE_SECTIONAL_TERM -> return sectionalTermNames[get(Calendar.MONTH)]
             CHINESE_PRINCIPLE_TERM -> return principleTermNames[get(Calendar.MONTH)]
             CHINESE_HEAVENLY_STEM -> return stemNames[get(field)]
             CHINESE_EARTHLY_BRANCH -> return branchNames[get(field)]
             CHINESE_ZODIAC -> return animalNames[get(field)]
-            Calendar.DAY_OF_WEEK -> return chineseWeekNames[get(field)]
             CHINESE_TERM_OR_DATE -> return getChinese(get(CHINESE_TERM_OR_DATE))
+            Calendar.DAY_OF_WEEK -> return chineseWeekNames[get(field)]
             else -> throw IllegalArgumentException("不支持的field中文获取：" + field)
         }
     }
+
+
 
     val simpleGregorianDateString: String
         get() = StringBuffer().append(get(Calendar.YEAR)).append("/")
@@ -485,6 +492,7 @@ class ChineseCalendar : GregorianCalendar {
         val CHINESE_YEAR = 801
         /** 农历月  */
         val CHINESE_MONTH = 802
+        val CHINESE_MONTH_NUMBER = 902
         /** 农历日  */
         val CHINESE_DATE = 803
         /** 当月的节气对应的公历日(前一个节气)  */
@@ -498,7 +506,10 @@ class ChineseCalendar : GregorianCalendar {
         /** 农历年的属相(生肖)  */
         val CHINESE_ZODIAC = 808
         /** 节气或者农历日  */
-        val CHINESE_TERM_OR_DATE = 888
+        val CHINESE_TERM_OR_DATE = 809
+
+        val DAY_OF_WEEK = 810
+
 
         /* 接下来是静态方法~ */
         /**
@@ -672,13 +683,14 @@ class ChineseCalendar : GregorianCalendar {
 
         /* 中文字符串 */
         private val chineseWeekNames = arrayOf("", "星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六")
-        private val chineseMonthNames = arrayOf("", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "十一", "十二")
+        private val chineseMonthNames = arrayOf("", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊")
         private val chineseDateNames = arrayOf("", "初一", "初二", "初三", "初四", "初五", "初六", "初七", "初八", "初九", "初十", "十一", "十二", "十三", "十四", "十五", "十六", "十七", "十八", "十九", "二十", "廿一", "廿二", "廿三", "廿四", "廿五", "廿六", "廿七", "廿八", "廿九", "三十")
         private val principleTermNames = arrayOf("大寒", "雨水", "春分", "谷雨", "夏满", "夏至", "大暑", "处暑", "秋分", "霜降", "小雪", "冬至")
         private val sectionalTermNames = arrayOf("小寒", "立春", "惊蛰", "清明", "立夏", "芒种", "小暑", "立秋", "白露", "寒露", "立冬", "大雪")
         private val stemNames = arrayOf("", "甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸")
         private val branchNames = arrayOf("", "子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥")
         private val animalNames = arrayOf("", "鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪")
+
 
         /* 接下来是数据压缩表~ */
         private val bigLeapMonthYears = intArrayOf(6, 14, 19, 25, 33, 36, 38, 41, 44, 52, 55, 79, 117, 136, 147, 150, 155, 158, 185, 193)
