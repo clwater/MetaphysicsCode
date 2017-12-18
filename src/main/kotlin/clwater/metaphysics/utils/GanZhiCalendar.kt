@@ -37,14 +37,20 @@ object GanZhiCalendar{
         var ganZhiDay = String()
         val c = year / 100
         val y = year % 100
-        val m = month
+        var m = month
         val d = day
+        var dayIndex = 0;
         var G = 0
         G = 4 * c + ( c / 4 ).toInt() + 5 * y + ( y / 4 ).toInt() + (3 * ( m + 1) / 5).toInt() + d + 3
 
         var Z = 0
-
-        Z = 8 * c + ( c / 4).toInt() + 5 * y + ( y / 4 ).toInt() + (3 * ( m + 1) / 5).toInt() + d + 7 + 6
+        if (month < 3){
+            m += 12
+        }
+        if (month % 2 == 0){
+            dayIndex = 6
+        }
+        Z = 8 * c + ( c / 4).toInt() + 5 * y + ( y / 4 ).toInt() + (3 * ( m + 1) / 5).toInt() + d + 7 + dayIndex
         println(G % 10)
         println(Z % 12)
 
