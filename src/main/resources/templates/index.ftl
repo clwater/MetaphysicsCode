@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>X</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
@@ -33,20 +33,20 @@
         <div class="col-lg-6 mainDiv">
 
             <div class="baseText">
-                ${year}${month}${day} ${week}
+                ${year}年${month}月${day}日 ${week}
             </div>
             <div class="baseText">
                 ${dateWithFestival}
             </div>
             <div class="baseText">
-                ${zhYear}${zhMonth}月 ${zhDay}
+                ${zhYear}年 ${zhMonth}月 ${zhDay}日
             </div>
             <div class="baseText">
-                ${lunarTiangan+lunarDizhi}[${zodiac}]
+                ${lunarTiangan+lunarDizhi}[${zodiac}]年
             </div>
 
             <div class="baseText">
-                ${ganZhiMonth}${ganZhiDay}
+                ${ganZhiMonth}月${ganZhiDay}日
             </div>
 
             <div class="baseText">
