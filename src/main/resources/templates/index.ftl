@@ -45,7 +45,11 @@
             </div>
 
             <div class="baseText">
-            ${ganZhiMonth}月${ganZhiDay}日
+                ${ganZhiMonth}月${ganZhiDay}日
+            </div>
+
+            <div class="baseText">
+                ${lastFestival}${netxFestival}
             </div>
 
         </div>

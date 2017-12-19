@@ -57,12 +57,12 @@ kotlin {
     }
 }
 
-//
-//jar {
-//    baseName 'abc'
-//    manifest {
-//        attributes 'Main-Class': 'clwater.metaphysics.ServerMain'
-//    }
-//
-//    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
-//}
+
+jar {
+    baseName 'Server'
+    manifest {
+        attributes 'Main-Class': 'clwater.metaphysics.ServerMain'
+    }
+
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+}

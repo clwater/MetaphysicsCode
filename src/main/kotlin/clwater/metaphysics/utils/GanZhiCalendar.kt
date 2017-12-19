@@ -4,7 +4,6 @@ object GanZhiCalendar{
     val zhiDataMonth = arrayOf("寅","卯","辰","巳","午","未","申","酉","戌","亥", "子","丑")
     val zhiDataDay = arrayOf("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥")
     val ganData = arrayOf("甲","乙","丙","丁","戊","己","庚","辛","壬","癸")
-    val baseMonth = arrayOf(0,31,-1,30,0,31,1,32,3,33,4,34)
     var correctionIndex = 0
 
 
@@ -51,8 +50,8 @@ object GanZhiCalendar{
             dayIndex = 6
         }
         Z = 8 * c + ( c / 4).toInt() + 5 * y + ( y / 4 ).toInt() + (3 * ( m + 1) / 5).toInt() + d + 7 + dayIndex
-        println(G % 10)
-        println(Z % 12)
+//        println(G % 10)
+//        println(Z % 12)
 
         ganZhiDay = ganData[G % 10 - 1] + zhiDataDay[Z % 12 - 1]
 
