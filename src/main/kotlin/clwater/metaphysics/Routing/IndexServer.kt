@@ -100,24 +100,24 @@ object IndexServer{
 
 
     private fun initMao(call: ApplicationCall): Map<Any, Any> {
-        return mapOf("year" to year + "年" ,
-                "month" to month + "月",
-                "day" to day + "日",
+        return mapOf("year" to year ,
+                "month" to month ,
+                "day" to day ,
                 "week" to week ,
-                "zhYear" to zhYear + "年",
-                "zhMonth" to zhMonth + "月",
-                "zhDay" to zhDay + "日",
+                "zhYear" to zhYear  ,
+                "zhMonth" to zhMonth ,
+                "zhDay" to zhDay ,
                 "dateWithFestival" to dateWithFestival,
                 "lunarTiangan" to lunarTiangan,
                 "lunarDizhi" to lunarDizhi,
-                "zodiac" to zodiac + "年",
+                "zodiac" to zodiac  ,
                 "lunarYear" to lunarYear,
                 "lunarMonth" to lunarMonth,
                 "lunarDay" to lunarDay,
                 "lastFestival" to lastFestival,
                 "netxFestival" to netxFestival,
-                "ganZhiMonth" to ganZhiMonth + "月",
-                "ganZhiDay" to ganZhiDay + "日"
+                "ganZhiMonth" to ganZhiMonth ,
+                "ganZhiDay" to ganZhiDay
         )
     }
 }
