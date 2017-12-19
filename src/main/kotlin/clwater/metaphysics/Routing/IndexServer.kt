@@ -55,7 +55,6 @@ object IndexServer{
         week = getWeekToday()
         ganZhiMonth = GanZhiCalendar.getGanZhiMonth(year.toInt() , c.getChinese(ChineseCalendar.CHINESE_MONTH_NUMBER).toInt() - 1)
         ganZhiDay =  GanZhiCalendar.ganZhiDay(year.toInt() , month.toInt() , day.toInt())
-
     }
 
     fun getWeekToday(): String {

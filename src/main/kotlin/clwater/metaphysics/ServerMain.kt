@@ -1,5 +1,7 @@
 package clwater.metaphysics
 
+import clwater.metaphysics.model.Gua
+import clwater.metaphysics.utils.getListFromFile
 import org.jetbrains.ktor.freemarker.*
 import org.jetbrains.ktor.host.*   // for embededServer
 import org.jetbrains.ktor.netty.*  // for Netty
@@ -10,11 +12,16 @@ import org.jetbrains.ktor.response.respond
 import org.jetbrains.ktor.routing.Routing
 import org.jetbrains.ktor.routing.get
 
+var listGua :MutableList<Gua> = ArrayList()
+
+
 class ServerMain{
+
     companion object {
         @JvmStatic
         fun main(args: Array<String>) {
-            startServer()
+            listGua = getListFromFile()
+//            startServer()
 //            test()
         }
     }
@@ -44,4 +51,5 @@ fun Application.module() {
 fun startServer(){
     embeddedServer(Netty, 9002, watchPaths = listOf("ServerMain"), module = Application::module).start()
 }
+
 
