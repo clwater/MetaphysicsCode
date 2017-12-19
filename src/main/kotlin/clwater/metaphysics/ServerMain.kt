@@ -52,6 +52,6 @@ fun Application.module() {
 }
 
 fun startServer(){
-    embeddedServer(Netty, 9001, watchPaths = listOf("ServerMain"), module = Application::module).start()
+    embeddedServer(Netty, 9002, watchPaths = listOf("ServerMain"), module = Application::module).start()
 }
 
