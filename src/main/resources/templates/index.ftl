@@ -33,20 +33,20 @@
         <div class="col-lg-6 mainDiv">
 
             <div class="baseText">
-                ${year}年${month}月${day}日 ${week}
+                ${year}${month}${day} ${week}
             </div>
             <div class="baseText">
                 ${dateWithFestival}
             </div>
             <div class="baseText">
-                ${zhYear}年 ${zhMonth}月 ${zhDay}日
+                ${zhYear}${zhMonth}月 ${zhDay}
             </div>
             <div class="baseText">
-                ${lunarTiangan+lunarDizhi}[${zodiac}]年
+                ${lunarTiangan+lunarDizhi}[${zodiac}]
             </div>
 
             <div class="baseText">
-                ${ganZhiMonth}月${ganZhiDay}日
+                ${ganZhiMonth}${ganZhiDay}
             </div>
 
             <div class="baseText">
