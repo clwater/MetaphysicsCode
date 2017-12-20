@@ -1,5 +1,8 @@
 package clwater.metaphysics.utils
 
+var monthIndexGanZhiCalendar = 0
+var dayIndexGanZhiCalendar = 0
+
 object GanZhiCalendar{
     val zhiDataMonth = arrayOf("寅","卯","辰","巳","午","未","申","酉","戌","亥", "子","丑")
     val zhiDataDay = arrayOf("子","丑","寅","卯","辰","巳","午","未","申","酉","戌","亥")
@@ -9,7 +12,6 @@ object GanZhiCalendar{
 
     fun getGanZhiMonth(year: Int , _month: Int): String{
         val month = _month - 1
-        var ganZhiMonth = String()
         var gan = ( (year % 5) - 2) * 2 - 2
         if (gan < 0 ) {
             gan += 10
@@ -26,14 +28,14 @@ object GanZhiCalendar{
         if (ganIndex < 0){
             ganIndex += 10
         }
-        ganZhiMonth = ganData[ganIndex] + zhiDataMonth[month]
+        val ganZhiMonth = ganData[ganIndex] + zhiDataMonth[month]
+        monthIndexGanZhiCalendar = (ganIndex  + 1) * month
 
         return ganZhiMonth
     }
 
 
     fun ganZhiDay(year: Int , month: Int , day: Int): String{
-        var ganZhiDay = String()
         val c = year / 100
         val y = year % 100
         var m = month
@@ -53,7 +55,9 @@ object GanZhiCalendar{
 //        println(G % 10)
 //        println(Z % 12)
 
-        ganZhiDay = ganData[G % 10 - 1] + zhiDataDay[Z % 12 - 1]
+        val ganZhiDay = ganData[G % 10 - 1] + zhiDataDay[Z % 12 - 1]
+
+        dayIndexGanZhiCalendar = (G % 10) * (Z % 12)
 
         return ganZhiDay
 

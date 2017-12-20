@@ -1,7 +1,10 @@
 package clwater.metaphysics.Routing
 
+import clwater.metaphysics.listGua
 import clwater.metaphysics.utils.ChineseCalendar
 import clwater.metaphysics.utils.GanZhiCalendar
+import clwater.metaphysics.utils.dayIndexGanZhiCalendar
+import clwater.metaphysics.utils.monthIndexGanZhiCalendar
 import org.jetbrains.ktor.application.ApplicationCall
 import java.text.SimpleDateFormat
 import java.util.*
@@ -27,6 +30,7 @@ object IndexServer{
     private var dateWithFestival = String()
     private var ganZhiMonth = String()
     private var ganZhiDay = String()
+    private var dayIndex = 0
 
     fun initDate(){
         println("check date")
@@ -55,6 +59,11 @@ object IndexServer{
         week = getWeekToday()
         ganZhiMonth = GanZhiCalendar.getGanZhiMonth(year.toInt() , c.getChinese(ChineseCalendar.CHINESE_MONTH_NUMBER).toInt() - 1)
         ganZhiDay =  GanZhiCalendar.ganZhiDay(year.toInt() , month.toInt() , day.toInt())
+
+        dayIndex = dayIndexGanZhiCalendar * monthIndexGanZhiCalendar % 64
+
+        val gua = listGua[dayIndex]
+        println(gua)
     }
 
     fun getWeekToday(): String {
