@@ -26,6 +26,8 @@ fun getListFromFile():MutableList<Gua>{
                 nameInfo = items[4], guaIndex1 = items[5].toInt(), guaIndex2 = items[6].toInt(),
                 statu = items[7], info = items[8], Jie = BoList
         )
+
+        println(gua.toString())
         listGua.add(gua)
 
     }

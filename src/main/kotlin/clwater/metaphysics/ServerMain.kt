@@ -23,7 +23,7 @@ class ServerMain{
         @JvmStatic
         fun main(args: Array<String>) {
             listGua = getListFromFile()
-//            println(listGua)
+            println(listGua)
             startServer()
 //            test()
         }
@@ -41,7 +41,7 @@ fun Application.module() {
     install(CallLogging)
     install(Routing) {
         get("/test") {
-            call.respondText(""+ listGua.toString(), ContentType.Text.Html)
+            call.respondText("test", ContentType.Text.Html)
         }
         get("/") {
             val map = WebRouting.into("/" ,call)
